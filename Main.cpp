@@ -6,11 +6,11 @@
 #include "Raindrop.hpp"
 #include "Textures.hpp"
 
-constexpr int RAIN_NUMBER {2048};			//total number of raindrops
-constexpr int FRAME_DELAY {16};				//something to do with fps
-constexpr int RES_X {1280};					//resolution in x dimension
-constexpr int RES_Y {720};					//resolution in y dimension
-constexpr const char title[11] = "Animations";
+constexpr int RAIN_NUMBER {2048};				//total number of raindrops
+constexpr int FRAME_DELAY {16};					//something to do with fps
+constexpr int RES_X {1280};						//resolution in x dimension
+constexpr int RES_Y {720};						//resolution in y dimension
+constexpr const char title[11] = "Animations";  //window title
 
 SDL_Renderer* init(const char* title, int height, int width, int flags){	
 	if(SDL_Init(SDL_INIT_EVERYTHING) >= 0){
@@ -104,13 +104,11 @@ int event(int& version){
 	SDL_Event e;
 	while(SDL_PollEvent(&e)){
 		if (e.type== SDL_QUIT){
-			SDL_Quit();
 			return -1;
 		}	
 		else if(e.type == SDL_KEYDOWN) {
 			switch(e.key.keysym.sym){
 				case(SDLK_ESCAPE):
-					SDL_Quit();
 					return -1;
 				
 				case(SDLK_r):
@@ -118,7 +116,6 @@ int event(int& version){
 					versionControl();
 					std::cin>>version;
 					while(version<=0 || version>4){
-						
 						std::cin>>version;
 					}
 					exeToForeground(title);
@@ -152,8 +149,10 @@ int main(int argc, char** argv){
 	SDL_Renderer* renderer = init(title, RES_X, RES_Y, SDL_WINDOW_SHOWN | SDL_WINDOW_ALLOW_HIGHDPI);
 	if(renderer == nullptr)
 		return 1;
+	
+	Textures text{renderer};	
 	std::array<Raindrop, RAIN_NUMBER> drop;
-	Textures text{renderer};
+	
 	if(version == 1)
 		Raindrop::rain_init_butterfly<RAIN_NUMBER>(drop, text.rainSource, RES_Y, RES_X);
 	else if(version ==2)
@@ -197,7 +196,7 @@ int main(int argc, char** argv){
 					break;
 			}
 		}
-			
 	}
+	SDL_Quit();
 	return 0;
 }
