@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "random": "cpp",
+        "cmath": "cpp",
+        "*.tcc": "cpp",
+        "deque": "cpp",
+        "string": "cpp",
+        "vector": "cpp"
+    },
+    "C_Cpp.default.compilerPath": "D:\\mingw64\\bin\\g++.exe"
+}
