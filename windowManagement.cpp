@@ -1,7 +1,5 @@
 #include <windows.h>
 #include "windowManagement.hpp"
-#include <iostream>
-#include <fstream>
 
 void showConsole(bool show){
 	HWND consoleWindow = FindWindowA("ConsoleWindowClass", NULL);

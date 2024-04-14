@@ -1,14 +1,6 @@
-# rain-simulator
+#SDL_animations
 
-Ermir Alliu
-Programming Languages and Techniques Coursework
+Some animations I made based on the Rain-Simulator.
 
-For temperatures >0 && <=10, it may hail, but usually it will rain.
-For temperatures >0 && <200, it will rain.
-For temperatures >200, it's too hot to rain.
-For temperatures <0 && > -274, it will snow.
-For temperatures <= -274, it's less than absolute zero. Nothing can happen, nothing will happen.
-
-Wind preferrably should be ~<|1000|, otherwise it does not look well.
-
-If it snows, snow sticks and will be removed when it rains.
+Press "r" to choose the type of animation.
+Press "i" to choose the rain initialization/placement.

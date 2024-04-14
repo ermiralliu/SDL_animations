@@ -1,6 +1,4 @@
 #include <iostream>
-#include <time.h>
-#include <array>
 
 #define SDL_MAIN_HANDLED
 #include "SDL2/include/SDL.h"
